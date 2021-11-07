@@ -5,11 +5,13 @@
 
 import random
 
+
 def set_up():
     ran_num = random.randint(0, 10)  # random number generated
     print('random number is ' + str(ran_num))  # show random number as a check
     user = input('Please guess a number from 0 to 10: ')  # user input guess
     check(user, ran_num)  # def check()
+
 
 def check_win(ran_num, user):
     count = 1  # count amount of guesses start at 1
@@ -45,13 +47,13 @@ def evaluate_low(ran_num, user):  # i should be able to place this in other def 
         print(ran_num)
         return True
 
+
 def check(user, ran_num):
     while True:  # check that input is a number not letter
         if user.isdigit():
             return check_win(ran_num, user)  # user input guess
         else:
             user = input('You entered a letter, please guess again ')  # user input guess
-
 
 
 print(set_up())  # run program

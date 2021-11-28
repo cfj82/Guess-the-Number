@@ -12,14 +12,14 @@ root = Tk()
 root.title("Number Guess Game")
 root.minsize(width=450, height=250)
 
-
+# declare variable outputs
 guess_num = StringVar()
 hint = StringVar()
 
 def start():
     global ran_num
     ran_num = random.randint(0, 5)  # random number generated
-    hint.set("Enter a Number 0 to 5")
+    hint.set("Enter a Number 0 to 5")  # hint text output set
 
 
 def play():
@@ -29,10 +29,10 @@ def play():
         hint.set("Good Job! You Win!")
     elif guess > ran_num:  # guess high
         hint.set("Guess is too High")
-        entry.delete(0, END)
+        entry.delete(0, END)  # after check will delete text
     elif guess < ran_num:  # guess low
         hint.set("Guess is too Low")
-        entry.delete(0, END)
+        entry.delete(0, END)  # after check will delete text
 
 
 
@@ -63,12 +63,12 @@ f2.pack(expand=True, fill="both")
 
 # entry field
 entry = Entry(f2, font=("verdana", 15), relief=SUNKEN, border=10,
-                bg="#D5D8DC", text="Submit", width=15,
+                bg="#D5D8DC", text="Submit", width=15, justify="center",  # justify for center text
               textvariable=guess_num)
 entry.pack(side=LEFT, expand=True, fill="y",)
 
 # submit button
-submit_btn = Button(f2, font=("verdana", 15), anchor="center", relief=GROOVE, border=10,
+submit_btn = Button(f2, font=("verdana", 15), anchor="center", relief=GROOVE, border=10, activebackground="#A2D9CE",
                     bg="#5DADE2", text="Submit", command=play)
 submit_btn.pack(side=LEFT, expand=True, fill="both", pady=3, padx=8)
 
@@ -77,7 +77,7 @@ f3.pack(expand=True, fill="both")
 
 # hint label
 hint_lbl = Label(f3, font=("verdana", 18), anchor="center", relief=SUNKEN, border=10,
-                    bg="#5DADE2",
+                 bg="#5DADE2",
                  textvariable=hint)
 hint_lbl.pack(expand=True, fill="both", pady=3, padx=8)
 
@@ -85,13 +85,13 @@ f4 = Frame(root, pady=3, bg="#000000")  # frame for number guess
 f4.pack(expand=True, fill="both")
 
 # button to quit game
-quit = Button(f4, font=("verdana", 15), anchor="center", relief=GROOVE, border=10,
-                    bg="#D2B4DE", text="Quit", command=quit)
-quit.pack(side=LEFT, expand=True, fill="both", pady=3, padx=6)
+quit_btn = Button(f4, font=("verdana", 15), anchor="center", relief=GROOVE, border=10, activebackground="#A2D9CE",
+                    bg="#BB8FCE", text="Quit", command=quit)
+quit_btn.pack(side=LEFT, expand=True, fill="both", pady=3, padx=6)
 
 # button to start game
-start = Button(f4, font=("verdana", 15), anchor="center", relief=GROOVE, border=10,
-                    bg="#D2B4DE", text="Start Game", command=start)
+start = Button(f4, font=("verdana", 15), anchor="center", relief=GROOVE, border=10, activebackground="#A2D9CE",
+                    bg="#BB8FCE", text="Start Game", command=start)
 start.pack(side=LEFT, expand=True, fill="both", pady=3, padx=6)
 
 
